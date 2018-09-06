@@ -1,10 +1,37 @@
 import React, { Component } from "react";
-import "./style.css";
+import ReactDOM from "react-dom";
 
 class App extends Component {
-  render() {
-    return <div className="App">Hello World</div>;
-  }
+
+    constructor() {
+        super();
+        this.state = {
+            locationData: [],
+            vehicleData: [],
+
+        }
+    }
+    
+    componentDidMount = async () => {
+        const nypdApi = await fetch('https://data.cityofnewyork.us/resource/qiz3-axqb.json');
+        const nypdData = await nypdApi.json();
+        console.log (nypdData);
+
+        this.setState({
+            // locationData: nypdData,
+        })
+        // const locData = locationData;
+        // console.log(locData);
+    }
+
+    render() {
+        return(
+        <p>Hello World!</p>
+        )
+    }
+
 }
+
+ReactDOM.render(<App />, document.getElementById("root"));
 
 export default App;
