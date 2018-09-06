@@ -19,18 +19,18 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    const nypdApi = await fetch('https://data.cityofnewyork.us/resource/qiz3-axqb.json');
+    const nypdApi = await fetch('https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc');
     const nypdData = await nypdApi.json();
     console.log(nypdData);
 
     this.setState({
-      cyclistsHurt: nypdData[0].number_of_cyclist_injured,
-      cyclistsKilled: nypdData[0].number_of_cyclist_killed,
-      pedestriansHurt: nypdData[0].number_of_pedestrians_injured,
-      pedestriansKilled: nypdData[0].number_of_pedestrians_killed,
-      locationDataLat: nypdData[0].location.coordinates[0],
-      locationDataLong: nypdData[0].location.coordinates[1],
-      vehicleData: nypdData[0].vehicle_type_code1,
+      cyclistsHurt: nypdData[9].number_of_cyclist_injured,
+      cyclistsKilled: nypdData[9].number_of_cyclist_killed,
+      pedestriansHurt: nypdData[9].number_of_pedestrians_injured,
+      pedestriansKilled: nypdData[9].number_of_pedestrians_killed,
+      locationDataLat: nypdData[9].location.coordinates[0],
+      locationDataLong: nypdData[9].location.coordinates[1],
+      vehicleData: nypdData[9].vehicle_type_code1,
     })
   }
 
@@ -39,10 +39,10 @@ class App extends Component {
       <div>
         <h1 className="h1">NYC Bike and Pedestrian Safety</h1>
         <div className="info-pane">
-        <p>Cyclists hurt: {this.state.cyclistsHurt}</p>
-        <p>Cyclists killed: {this.state.cyclistsKilled}</p>
-        <p>Pedestrians hurt: {this.state.pedestriansHurt}</p>
-        <p>Pedestrians killed: {this.state.pedestriansKilled}</p>
+        {this.state.cyclistsHurt > 0 && <p>Cyclists hurt: {this.state.cyclistsHurt}</p>}
+        {this.state.cyclistsKilled > 0 && <p>Cyclists killed: {this.state.cyclistsKilled}</p>}
+        {this.state.pedestriansHurt > 0 && <p>Pedestrians hurt: {this.state.pedestriansHurt}</p>}
+        {this.state.pedestriansKilled > 0 && <p>Pedestrians killed: {this.state.pedestriansKilled}</p>}
         <p>Latitude of incident: {this.state.locationDataLat}</p>
         <p>Longitude of incident: {this.state.locationDataLong}</p>
         <p>Type of vehicle involved: {this.state.vehicleData}</p>
