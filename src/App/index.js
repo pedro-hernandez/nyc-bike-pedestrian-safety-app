@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import "./style.css";
 
 class App extends Component {
 
@@ -36,6 +37,8 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h1 className="h1">NYC Bike and Pedestrian Safety</h1>
+        <div className="info-pane">
         <p>Cyclists hurt: {this.state.cyclistsHurt}</p>
         <p>Cyclists killed: {this.state.cyclistsKilled}</p>
         <p>Pedestrians hurt: {this.state.pedestriansHurt}</p>
@@ -43,6 +46,7 @@ class App extends Component {
         <p>Latitude of incident: {this.state.locationDataLat}</p>
         <p>Longitude of incident: {this.state.locationDataLong}</p>
         <p>Type of vehicle involved: {this.state.vehicleData}</p>
+        </div>
       </div>
     )
   }

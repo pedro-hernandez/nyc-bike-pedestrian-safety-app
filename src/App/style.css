@@ -1,0 +1,9 @@
+.h1 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.info-pane {
+    width: 60%;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
