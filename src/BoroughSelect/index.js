@@ -18,7 +18,7 @@ class BoroughSelect extends Component {
 
     handleSubmit = (event) => {
         let selectedBorough = `${this.state.value}`;
-        this.props.boroughProps(selectedBorough);
+        this.props.boroughInfoProps(selectedBorough);
         event.preventDefault();
     }
 
