@@ -7,7 +7,7 @@ class Map extends Component {
     state = {
         viewport: {
             width: 500,
-            height: 500,
+            height: 250,
             latitude: parseFloat(this.props.latitude),
             longitude: parseFloat(this.props.longitude),
             zoom: 14

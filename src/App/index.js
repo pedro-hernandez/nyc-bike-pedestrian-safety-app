@@ -31,6 +31,7 @@ class App extends Component {
     this.setState({
       incidents: nypdData,
       zip: '',
+      page: 0,
     })
   }
 
@@ -47,6 +48,7 @@ class App extends Component {
     this.setState({
       incidents: nypdData,
       borough: '',
+      page: 0,
     })
   }
 
@@ -60,7 +62,7 @@ class App extends Component {
     if (this.state.borough !== ''){
       let nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&borough=${this.state.borough}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
       nypdData = await nypdApi.json();
-    } else {
+    } else if (this.state.zip !== '') {
       const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&zip_code=${this.state.zip}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
       nypdData = await nypdApi.json();
     }
