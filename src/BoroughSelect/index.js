@@ -18,7 +18,7 @@ class BoroughSelect extends Component {
 
     handleSubmit = (event) => {
         let selectedBorough = `${this.state.value}`;
-        this.props.boroughInfoProps(selectedBorough);
+        this.props.boroughInfo(selectedBorough);
         event.preventDefault();
     }
 
@@ -26,11 +26,12 @@ class BoroughSelect extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
             <select onChange={this.handleChange}>
+                <option selected disabled>Select a Borough</option>
                 <option value="MANHATTAN">Manhattan</option>
                 <option value="BROOKLYN">Brooklyn</option>
                 <option value="QUEENS">Queens</option>
                 <option value="BRONX">The Bronx</option>
-                <option value="STATEN%20ISLAND">Staten Island</option>
+                <option value="STATEN ISLAND">Staten Island</option>
             </select>
             <button type="Submit">Submit</button>
             </form>

@@ -30,7 +30,7 @@ class App extends Component {
   //   })
   // }
 
-  boroughInfo = async (selectedBorough) =>{
+  boroughInfo = async (selectedBorough) => {
     this.setState({
       borough: selectedBorough,
     })
@@ -40,8 +40,6 @@ class App extends Component {
     this.setState({
       incidents: nypdData,
     })
-    // let boroughString = `${this.state.borough}`;
-    // console.log(boroughString);
   }
 
   render() {
@@ -49,9 +47,9 @@ class App extends Component {
       <div>
         <h1 className="h1">NYC Bike and Pedestrian Safety</h1>
         <div className="info-pane">
-        <BoroughSelect boroughInfoProps={this.boroughInfo} />
-        <IncidentList incidents={this.state.incidents} />
-        {/* {this.state.cyclistsHurt > 0 && <p>Cyclists hurt: {this.state.cyclistsHurt}</p>}
+          <BoroughSelect boroughInfo={this.boroughInfo} />
+          <IncidentList borough={this.state.borough} incidents={this.state.incidents} />
+          {/* {this.state.cyclistsHurt > 0 && <p>Cyclists hurt: {this.state.cyclistsHurt}</p>}
         {this.state.cyclistsKilled > 0 && <p>Cyclists killed: {this.state.cyclistsKilled}</p>}
         {this.state.pedestriansHurt > 0 && <p>Pedestrians hurt: {this.state.pedestriansHurt}</p>}
         {this.state.pedestriansKilled > 0 && <p>Pedestrians killed: {this.state.pedestriansKilled}</p>}
