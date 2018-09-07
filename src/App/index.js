@@ -34,7 +34,7 @@ class App extends Component {
     this.setState({
       borough: selectedBorough,
     })
-    const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=10&borough=${selectedBorough}&$offset=0&$where=location%20IS%20NOT%20NULL`);
+    const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&borough=${selectedBorough}&$offset=0&$where=location%20IS%20NOT%20NULL`);
     const nypdData = await nypdApi.json();
 
     this.setState({
