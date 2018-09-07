@@ -13,7 +13,7 @@ class BoroughSelect extends Component {
 
         this.setState({
             value: event.target.value,
-        })
+        });
     }
 
     handleSubmit = (event) => {
@@ -22,6 +22,7 @@ class BoroughSelect extends Component {
         event.preventDefault();
     }
 
+    // borough drop-down
     render() {
         return (
             <form onSubmit={this.handleSubmit}>

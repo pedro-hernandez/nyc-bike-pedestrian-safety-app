@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import ZipCodeSelect from "../ZipCodeSelect"
 import BoroughSelect from "../BoroughSelect";
 import IncidentList from "../IncidentList";
+import PagingButtons from "../PagingButtons"
 import "./style.css";
 
 
@@ -14,25 +15,12 @@ class App extends Component {
       incidents: [],
       borough: '',
       zip: '',
+      page: 0,
     }
   }
 
-  // componentDidMount = async () => {
-  //   const nypdApi = await fetch('https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=10&$offset=0&$where=location%20IS%20NOT%20NULL');
-  //   const nypdData = await nypdApi.json();
-  //   // console.log(nypdData);
-
-  //   this.setState({
-  //     // cyclistsHurt: nypdData[1].number_of_cyclist_injured,
-  //     // cyclistsKilled: nypdData[1].number_of_cyclist_killed,
-  //     // pedestriansHurt: nypdData[1].number_of_pedestrians_injured,
-  //     // pedestriansKilled: nypdData[1].number_of_pedestrians_killed,
-  //     // locationDataLat: nypdData[1].latitude,
-  //     // locationDataLong: nypdData[1].longitude,
-  //     // vehicleData: nypdData[1].vehicle_type_code1,
-  //   })
-  // }
-
+  // accepts data from BoroughSelect component to get most recent 
+  // vehicle collison info from NYC Open Data API 
   boroughInfo = async (selectedBorough) => {
     this.setState({
       borough: selectedBorough,
@@ -42,9 +30,12 @@ class App extends Component {
 
     this.setState({
       incidents: nypdData,
+      zip: '',
     })
   }
 
+  // accepts data from ZipCodeSelect component to get most recent 
+  // vehicle collison info from NYC Open Data API 
   zipInfo = async (selectedZip) => {
     this.setState({
       zip: selectedZip,
@@ -53,6 +44,27 @@ class App extends Component {
     const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&zip_code=${selectedZip}&$order=date%20DESC&$offset=0&$where=location%20IS%20NOT%20NULL`);
     const nypdData = await nypdApi.json();
 
+    this.setState({
+      incidents: nypdData,
+      borough: '',
+    })
+  }
+
+  pageInfo = async (pageChange) => {
+    this.setState({
+      page: this.state.page + pageChange,
+    })
+
+    let nypdData = this.state.incidents;
+
+    if (this.state.borough !== ''){
+      let nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&borough=${this.state.borough}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
+      nypdData = await nypdApi.json();
+    } else {
+      const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&zip_code=${this.state.zip}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
+      nypdData = await nypdApi.json();
+    }
+    
     this.setState({
       incidents: nypdData,
     })
@@ -65,7 +77,8 @@ class App extends Component {
         <div className="info-pane">
           <ZipCodeSelect zipInfo={this.zipInfo} /> or
           <BoroughSelect boroughInfo={this.boroughInfo} />
-          <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} />
+          <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} page={this.state.page}/>
+          <PagingButtons pageInfo={this.pageInfo} page={this.state.page} />
         </div>
       </div>
     )
