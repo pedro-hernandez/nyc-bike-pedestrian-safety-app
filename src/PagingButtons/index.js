@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import "./style.css";
 
 class PagingButtons extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         value: 0,
-    //     }
-    // }
 
     handleClickNext = (event) => {
 

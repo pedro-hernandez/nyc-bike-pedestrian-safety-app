@@ -77,7 +77,7 @@ class App extends Component {
         <div className="info-pane">
           <ZipCodeSelect zipInfo={this.zipInfo} /> or
           <BoroughSelect boroughInfo={this.boroughInfo} />
-          <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} page={this.state.page}/>
+          <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} page={this.state.page} />
           <PagingButtons pageInfo={this.pageInfo} page={this.state.page} />
         </div>
       </div>
