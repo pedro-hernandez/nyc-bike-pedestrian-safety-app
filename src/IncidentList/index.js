@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import Map from "../Map";
+import MapThumb from "../MapThumb"
 import "./style.css";
 
 
@@ -16,6 +17,7 @@ class IncidentList extends Component {
                     {this.props.incidents.map((item, index) => {
                         return (
                             <div key={item.unique_key}>{moment(item.date).format("dddd, MMMM Do YYYY")} at {moment(item.time, 'hh:mm a').format("hh:mm a")}{this.props.borough && <span className="zip-span"> in zip code {item.zip_code}</span>}
+                            <MapThumb latitude={item.latitude} longitude={item.longitude} />
                             <Map latitude={item.latitude} longitude={item.longitude} />
                             {item.number_of_persons_injured > 0 && <p>People hurt: {item.number_of_persons_injured}</p>}
                                 {item.number_of_persons_killed > 0 && <p>People killed: {item.number_of_persons_killed}</p>}
