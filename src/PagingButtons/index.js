@@ -16,7 +16,6 @@ class PagingButtons extends Component {
         let pageChange = -5;
 
         this.props.pageInfo(pageChange);
-        event.preventDefault();
     }
 
     render(){
