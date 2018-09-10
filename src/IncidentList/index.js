@@ -21,7 +21,7 @@ class IncidentList extends Component {
 
         return ((this.props.borough || this.props.zip) &&
             <div>
-                <h2 className="h2">The following recently occured in {this.props.borough === 'BRONX' ? `THE BRONX` : this.props.borough} {this.props.zip}:</h2>
+                <h2 className="h2">The following occured in {this.props.borough === 'BRONX' ? `THE BRONX` : this.props.borough} {this.props.zip}:</h2>
                 <div className="incidents_wrapper">
                     {this.props.incidents.map((item, index) => {
                         return (

@@ -80,15 +80,16 @@ class App extends Component {
       <div>
         <h1 className="h1">NYC Bike and Pedestrian Safety</h1>
         <div className="info-pane-wrapper">
-        <div className="selectors-wrapper">
-          <div className="selector-zip">
-          <ZipCodeSelect zipInfo={this.zipInfo} />
+          <div className="selectors-wrapper">
+            <div className="selector-zip">
+              <ZipCodeSelect zipInfo={this.zipInfo} />
+            </div>
+            <div className="selector-borough">
+              <BoroughSelect boroughInfo={this.boroughInfo} />
+            </div>
           </div>
-          <div className="selector-borough">
-          <BoroughSelect boroughInfo={this.boroughInfo} />
-          </div>
-        </div>
           <div className="info-pane">
+            {(this.state.zip || this.state.borough) !== '' && <PagingButtons pageInfo={this.pageInfo} page={this.state.page} />}
             <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} page={this.state.page} incidentDisplay={this.incidentDisplay} />
             {(this.state.zip || this.state.borough) !== '' && <PagingButtons pageInfo={this.pageInfo} page={this.state.page} />}
           </div>

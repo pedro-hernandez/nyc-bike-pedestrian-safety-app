@@ -5,17 +5,17 @@ body {
 .info-pane {
     width: 640px;
     margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
 }
 
 .selectors-wrapper {
+    width: 640px;
     display: flex;
     justify-content: space-evenly;
-    padding: 10px;
+    padding: 10px 0;
+    margin: 10px auto;
     border: 1px solid #363636;
-    border-radius: 4px;
 }
 
-.selector-zip{}
+.selector-zip {}
 
-.selector-borough{}
+.selector-borough {}
