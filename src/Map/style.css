@@ -1,3 +1,8 @@
+.map {
+    margin: 10px 8px;
+    border: 1px solid #707070;
+}
+
 .mapboxgl-marker {
     width: 20px;
     height: 20px;

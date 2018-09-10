@@ -1,0 +1,22 @@
+.details {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.details-list {
+    list-style: none;
+}
+
+.total-hurt {
+    color: #b60000;
+    text-decoration: underline;
+    font-weight: 800;
+}
+
+.total-hurt-li {
+    margin: 0 0 5px 0;
+}
+
+.hurt-li {
+    margin: 0 0 0 10px;
+}

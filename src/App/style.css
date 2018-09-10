@@ -1,9 +1,21 @@
-.h1 {
-    font-family: 'Roboto', sans-serif;
+body {
+        font-family: 'Roboto', sans-serif;
 }
 
 .info-pane {
-    width: 60%;
+    width: 640px;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
 }
+
+.selectors-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    border: 1px solid #363636;
+    border-radius: 4px;
+}
+
+.selector-zip{}
+
+.selector-borough{}

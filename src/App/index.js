@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import ZipCodeSelect from "../ZipCodeSelect"
 import BoroughSelect from "../BoroughSelect";
 import IncidentList from "../IncidentList";
-import Incident from "../Incident";
+// import Incident from "../Incident";
 import PagingButtons from "../PagingButtons";
 import "./style.css";
 
@@ -17,7 +17,6 @@ class App extends Component {
       borough: '',
       zip: '',
       page: 0,
-      showIncident: false,
     }
   }
 
@@ -75,27 +74,20 @@ class App extends Component {
     });
   }
 
-  // determines when to show individual incidents based on user
-  // interaction with IncidentList
-  incidentDisplay = (incidentInfo) => {
-    // let show = incidentInfo;
-
-    this.setState({
-      showIncident: incidentInfo,
-    });
-  }           
-
   render() {
-
-    let showNow = this.state.showIncident;
-    console.log(showNow);
 
     return (
       <div>
         <h1 className="h1">NYC Bike and Pedestrian Safety</h1>
         <div className="info-pane-wrapper">
-          <ZipCodeSelect zipInfo={this.zipInfo} /> or
+        <div className="selectors-wrapper">
+          <div className="selector-zip">
+          <ZipCodeSelect zipInfo={this.zipInfo} />
+          </div>
+          <div className="selector-borough">
           <BoroughSelect boroughInfo={this.boroughInfo} />
+          </div>
+        </div>
           <div className="info-pane">
             <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} page={this.state.page} incidentDisplay={this.incidentDisplay} />
             {(this.state.zip || this.state.borough) !== '' && <PagingButtons pageInfo={this.pageInfo} page={this.state.page} />}

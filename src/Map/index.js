@@ -8,7 +8,7 @@ class Map extends Component {
     state = {
         viewport: {
             width: 600,
-            height: 300,
+            height: 371,
             latitude: parseFloat(this.props.latitude),
             longitude: parseFloat(this.props.longitude),
             zoom: 14,
@@ -18,6 +18,7 @@ class Map extends Component {
 
     render() {
         return (
+            <div className="map">
             <ReactMapGL
                 {...this.state.viewport}
                 mapStyle="mapbox://styles/mapbox/streets-v9"
@@ -27,6 +28,7 @@ class Map extends Component {
             <div></div>
             </Marker>
             </ReactMapGL>
+            </div>
         );
     }
 }
