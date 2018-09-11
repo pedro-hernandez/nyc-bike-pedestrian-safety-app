@@ -28,7 +28,7 @@ class ZipCodeSelect extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-            <lable className="lable">
+            <lable>
             Enter a five-digit NYC zip code 
             <input className="text-input" type="text" value={this.state.value} onChange={this.handleChange} />
             </lable>

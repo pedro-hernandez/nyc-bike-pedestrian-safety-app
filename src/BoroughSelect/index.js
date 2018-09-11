@@ -25,8 +25,10 @@ class BoroughSelect extends Component {
     // borough drop-down
     render() {
         return (
+            <div className="borough-select">
             <form onSubmit={this.handleSubmit}>
-            <select onChange={this.handleChange}>
+            <label> ...or
+            <select className="select" onChange={this.handleChange}>
                 <option selected disabled>Select a Borough</option>
                 <option value="MANHATTAN">Manhattan</option>
                 <option value="BROOKLYN">Brooklyn</option>
@@ -34,8 +36,10 @@ class BoroughSelect extends Component {
                 <option value="BRONX">The Bronx</option>
                 <option value="STATEN ISLAND">Staten Island</option>
             </select>
-            <button type="Submit">Submit</button>
+            </label>
+            <button className="submit-button" type="Submit">Submit</button>
             </form>
+            </div>
         )
     }
 }

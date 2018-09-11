@@ -1,27 +1,24 @@
 import React, { Component } from "react";
 import moment from "moment";
-// import Map from "../Map";
-import MapThumb from "../MapThumb";
 import Incident from "../Incident";
 import "./style.css";
 
 
 class IncidentList extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             value: '',
             key: 0,
             showIncident: false,
+            coordsObj: {},
         }
     }
 
     render() {
-        console.log(this.state.showIncident);
-
         return ((this.props.borough || this.props.zip) &&
             <div>
-                <h2 className="h2">The following occured in {this.props.borough === 'BRONX' ? `THE BRONX` : this.props.borough} {this.props.zip}:</h2>
+                <h2>The following accidents occured in {this.props.borough === 'BRONX' ? `THE BRONX` : this.props.borough} {this.props.zip}:</h2>
                 <div className="incidents_wrapper">
                     {this.props.incidents.map((item, index) => {
                         return (

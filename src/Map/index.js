@@ -7,8 +7,8 @@ const mapboxToken = 'pk.eyJ1IjoicGhlcm4iLCJhIjoiY2psc2JlN3lnMDBiaTNwcGhyaWlpa2Vl
 class Map extends Component {
     state = {
         viewport: {
-            width: 600,
-            height: 371,
+            width: this.props.width,
+            height: this.props.height,
             latitude: parseFloat(this.props.latitude),
             longitude: parseFloat(this.props.longitude),
             zoom: 14,

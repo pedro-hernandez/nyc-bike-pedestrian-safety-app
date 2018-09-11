@@ -14,7 +14,7 @@ class Incident extends Component {
     render() {
         return (
             <div>
-                <Map latitude={this.props.item.latitude} longitude={this.props.item.longitude} />
+                <Map latitude={this.props.item.latitude} longitude={this.props.item.longitude} width={600} height={371}/>
                 <div className="details">
                 <ul className="details-list">
                 {this.props.item.number_of_persons_injured > 0 && <li className="total-hurt-li"><span className="total-hurt">Total number of people hurt: {this.props.item.number_of_persons_injured}</span></li>}
