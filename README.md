@@ -1,4 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+NYC Bike and Pedestrian Safety App
+
+Insights for more walkable, bike-friendly NYC. This app that shows folks about recent vehicular accidents involving cyclists and/or pedestrians in their neighborhoods, raising awareness for cyclists, pedestrians and their four-wheeled friends.
+
+Users can look up recent car accidents using their NYC zip codes or by selecting their borough.
+
+Involves accessing data from the NYPD Motor Vehicle Collisions API, generating a list based on the neighborhood entered by the user and provides further information on each incident, including the pinpointed location on a map.
+
+NYC Open Data API
+https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95
+https://data.cityofnewyork.us/resource/qiz3-axqb.json
+
+
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
@@ -2483,4 +2496,4 @@ In the future, we might start automatically compiling incompatible third-party m
 
 ## Something Missing?
 
-If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md) -->
