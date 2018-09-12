@@ -13,7 +13,7 @@ class StatsCyclistsKilled extends Component {
         }
     }
 
-    getCyclistsKilled = async () => {
+    componentDidMount = async () => {
 
         const cyclistsKilledApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$select=sum(number_of_cyclist_killed)`);
         const cyclistsKilledData = await cyclistsKilledApi.json();
@@ -26,7 +26,7 @@ class StatsCyclistsKilled extends Component {
     render() {
         return (
             <span>
-             {this.getCyclistsKilled(),`${this.state.cyclistsKilled} cyclists have been killed`}   
+             {`${this.state.cyclistsKilled} cyclists have been killed`}   
             </span>
         )
     }
