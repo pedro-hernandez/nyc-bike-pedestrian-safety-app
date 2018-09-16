@@ -57,8 +57,8 @@ class App extends Component {
 
   // pages through results using next/back buttons
   pageInfo = async (pageChange) => {
-    this.setState((state) => ({
-      page: state.page + pageChange,
+    this.setState( prevState => ({
+      page: prevState.page + pageChange,
     }));
 
     let nypdData = this.state.incidents;
