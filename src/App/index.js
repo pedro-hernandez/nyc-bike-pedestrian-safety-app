@@ -32,7 +32,7 @@ class App extends Component {
     const nypdData = await nypdApi.json();
 
     this.setState({
-      incidents: nypdData,
+      incidents: [...nypdData],
       zip: '',
       page: 0,
     });
@@ -49,7 +49,7 @@ class App extends Component {
     const nypdData = await nypdApi.json();
 
     this.setState({
-      incidents: nypdData,
+      incidents: [...nypdData],
       borough: '',
       page: 0,
     });
@@ -57,23 +57,28 @@ class App extends Component {
 
   // pages through results using next/back buttons
   pageInfo = async (pageChange) => {
-    this.setState( prevState => ({
+    
+    this.setState(prevState => ({
       page: prevState.page + pageChange,
     }));
 
-    let nypdData = this.state.incidents;
+    let nypdData = [];
 
     if (this.state.borough !== '') {
+      await fetch (this.state.page);
       const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&borough=${this.state.borough}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
       nypdData = await nypdApi.json();
+      this.setState({
+        incidents: [...nypdData],
+      });
     } else if (this.state.zip !== '') {
+      await fetch (this.state.page);
       const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&zip_code=${this.state.zip}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
       nypdData = await nypdApi.json();
+      this.setState({
+        incidents: [...nypdData],
+      });
     }
-
-    this.setState({
-      incidents: nypdData,
-    });
   }
 
   render() {
@@ -88,7 +93,7 @@ class App extends Component {
             <BoroughSelect boroughInfo={this.boroughInfo} />
           </div>
           <div className="info-pane">
-            <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} page={this.state.page} incidentDisplay={this.incidentDisplay} latitude={this.state.latitude} longitude={this.state.longitude} />
+            <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} page={this.state.page} incidentDisplay={this.incidentDisplay} latitude={this.state.latitude} longitude={this.state.longitude} pageInfo={this.pageInfo} />
             {(this.state.zip || this.state.borough) !== '' && <PagingButtons pageInfo={this.pageInfo} page={this.state.page} />}
           </div>
         </div>
