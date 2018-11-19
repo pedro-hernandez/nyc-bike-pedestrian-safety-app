@@ -13,9 +13,9 @@ class PagingButtons extends Component {
         return(
             <div className="buttons-wrapper"> 
             {this.props.page > 0 &&
-            <button className="button" onClick={ ()=> {pageChange += -5; this.props.pageInfo(pageChange);}}>Back</button>
+            <button className="button" onClick={ ()=> {pageChange += -5; this.props.pageInfo(pageChange); window.scrollTo(0,0);}}>Back</button>
             }
-            <button className="button" onClick={ ()=> {pageChange += 5; this.props.pageInfo(pageChange);}}>Next</button>
+            <button className="button" onClick={ ()=> {pageChange += 5; this.props.pageInfo(pageChange); window.scrollTo(0,0);}}>Next</button>
             </div>
         )
     }
