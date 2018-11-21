@@ -22,7 +22,7 @@ class IncidentList extends Component {
                 <div className="incidents_wrapper">
                     {this.props.incidents.map((item, index) => {
                         return (
-                            <div className="incident" key={item.unique_key} value={this.state.value}>
+                            <div className={(parseInt(item.number_of_persons_injured, 10) === 0 && parseInt(item.number_of_persons_killed, 10) === 0) ? "incident" : "incident-hurt"} key={item.unique_key} value={this.state.value}>
                                 <div className="text-summary">
                                     {(parseInt(item.number_of_persons_injured, 10) === 0 && parseInt(item.number_of_persons_killed, 10) === 0) ? `No one was hurt ` : <span className="hurt">At least one person was hurt </span>}
                                     on {moment(item.date).format("dddd, MMMM Do YYYY")} at {moment(item.time, 'hh:mm a').format("hh:mm a")}{this.props.borough && <span className="zip-span"> in zip code {item.zip_code}</span>}

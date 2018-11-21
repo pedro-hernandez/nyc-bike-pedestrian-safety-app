@@ -101,7 +101,7 @@ class App extends Component {
           <Stats />
         </div>
         <div className="footer">
-          <p>Data courtesy of the NYPD and NYC Open Data. Backgrounds by <a className="url" href="https://www.heropatterns.com/">Hero Patterns</a>.</p>
+          <p>Data courtesy of the NYPD and NYC Open Data.</p>
         </div>
       </div>
     )
