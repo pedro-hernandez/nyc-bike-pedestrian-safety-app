@@ -5,7 +5,7 @@
     justify-content: center;
     padding: 20px 0 10px 0;
     margin: 10px 0 20px 0;
-    border: 2px solid #30408a;
+    border: 2px solid #1485CC;
     border-radius: 6px;
     background: #ecf0ff;
 }
@@ -17,13 +17,13 @@
     justify-content: center;
     padding: 20px 0 10px 0;
     margin: 10px 0 20px 0;
-    border: 2px solid #b60000;
+    border: 2px solid #B21212;
     border-radius: 6px;
     background: #ffe2e2;
 }
 
 .hurt {
-    color: #b60000;
+    color: #B21212;
     font-weight: 800;
     text-decoration: underline;
 }

@@ -97,7 +97,7 @@ class App extends Component {
           </div>
           <div className="info-pane">
             <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} page={this.state.page} incidentDisplay={this.incidentDisplay} latitude={this.state.latitude} longitude={this.state.longitude} pageInfo={this.pageInfo} />
-            {(this.state.zip || this.state.borough) !== '' && <PagingButtons pageInfo={this.pageInfo} page={this.state.page} />}
+            {((this.state.zip || this.state.borough) !== '' && this.state.incidents.length > 0) && <PagingButtons pageInfo={this.pageInfo} page={this.state.page} />}
           </div>
         </div>
         <div className="footer">
