@@ -57,7 +57,7 @@ class App extends Component {
 
   // pages through results using next/back buttons
   pageInfo = async (pageChange) => {
-    
+
     this.setState(prevState => ({
       page: prevState.page + pageChange,
     }));
@@ -65,14 +65,14 @@ class App extends Component {
     let nypdData = [];
 
     if (this.state.borough !== '') {
-      await fetch (this.state.page);
+      await fetch(this.state.page);
       const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&borough=${this.state.borough}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
       nypdData = await nypdApi.json();
       this.setState({
         incidents: [...nypdData],
       });
     } else if (this.state.zip !== '') {
-      await fetch (this.state.page);
+      await fetch(this.state.page);
       const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&zip_code=${this.state.zip}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
       nypdData = await nypdApi.json();
       this.setState({
@@ -85,7 +85,10 @@ class App extends Component {
     return (
       <div className="container">
         <div className="header">
-          <h1>NYC Bike and Pedestrian Safety App 🚴‍🚶‍</h1>
+          <h1>⚠️ NYC Bike and Pedestrian Safety App ⚠️</h1>
+        </div>
+        <div className="top-info-bar">
+          <Stats />
         </div>
         <div className="content">
           <div className="selectors-wrapper">
@@ -96,9 +99,6 @@ class App extends Component {
             <IncidentList zip={this.state.zip} borough={this.state.borough} incidents={this.state.incidents} page={this.state.page} incidentDisplay={this.incidentDisplay} latitude={this.state.latitude} longitude={this.state.longitude} pageInfo={this.pageInfo} />
             {(this.state.zip || this.state.borough) !== '' && <PagingButtons pageInfo={this.pageInfo} page={this.state.page} />}
           </div>
-        </div>
-        <div className="side-bar">
-          <Stats />
         </div>
         <div className="footer">
           <p>Data courtesy of the NYPD and NYC Open Data.</p>

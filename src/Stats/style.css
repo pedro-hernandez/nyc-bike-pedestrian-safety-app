@@ -1,6 +1,7 @@
 .stats {
-    position: fixed;
-    padding: 0 10px 0 10px;
+    width: 640px;
+    margin: 0 auto;
+    font-size: 18px;
 }
 
 .stats-list {

@@ -3,11 +3,6 @@ import "./style.css";
 
 class PagingButtons extends Component {
 
-    // componentDidUpdate = () => {
-    //     // this.props.pageInfo();
-    //     this.props.page;
-    // }
-
     render(){
         let pageChange = 0;
         return(

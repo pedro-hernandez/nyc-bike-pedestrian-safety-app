@@ -12,18 +12,17 @@
 }
 
 .submit-button {
-    padding: 3px 5px 3px 5px;
-    margin: 0px 0 0 10px;
+    width: 100px;
+    height: 30px;
     font-size: 18px;
     color: #ffffff;
-    text-align: center;
-    border: 1px solid #30408a;
+    background: #1485CC;
+    border: 1px #1485CC;
     border-radius: 4px;
-    background: #30408a;
 }
 
 .submit-button:hover {
     cursor: pointer;
-    color: #30408a;
+    color: #1485CC;
     background: #ffffff;
 }

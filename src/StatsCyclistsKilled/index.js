@@ -26,7 +26,7 @@ class StatsCyclistsKilled extends Component {
     render() {
         return (
             <span>
-             {`${this.state.cyclistsKilled} cyclists have been killed`}   
+             {`🚴‍♂️${this.state.cyclistsKilled} cyclists have been killed`}   
             </span>
         )
     }

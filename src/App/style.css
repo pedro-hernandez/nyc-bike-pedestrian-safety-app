@@ -9,16 +9,18 @@ body {
     color: #0a0a0a;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: 60px auto 30px;
+    grid-template-rows: 60px max-content auto 30px;
     grid-template-areas:
     "h h h h h h h h h h"
-    "c c c c c c c c s s"
+    "s s s s s s s s s s"
+    "c c c c c c c c c c"
     "f f f f f f f f f f";
 }
 
 .header {
     grid-area: h;
-    background: #30408a;
+    background: #B21212;
+    background-attachment: fixed;
     color: #ffffff;
     text-align: center;
 }
@@ -33,11 +35,10 @@ body {
     background-color: #ffffff;
 }
 
-.side-bar {
+.top-info-bar {
     grid-area: s;
-    color: #30408a;
-    background-attachment: fixed;
-    background-color: #c6bfff;
+    color: #0a0a0a;
+    background-color: #FFFC19;
 }
 
 .footer {
