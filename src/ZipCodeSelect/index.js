@@ -29,13 +29,13 @@ class ZipCodeSelect extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
             <lable>
-            Enter a five-digit NYC zip code 
-            <input className="text-input" type="text" value={this.state.value} onChange={this.handleChange} />
+            Enter a five-digit NYC zip code
+            <input className="text-input" type="text" value={this.state.value} onChange={this.handleChange} autoFocus/>
             </lable>
             <button className="submit-button" type="Submit">Submit</button>
             </form>
         )
-    }    
+    }
 }
-                    
+
 export default ZipCodeSelect;
