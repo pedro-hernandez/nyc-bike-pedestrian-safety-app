@@ -11,7 +11,6 @@ class Stats extends Component {
         return (
             <div className="stats">
                 <p>Know your nabe and be safe out there!</p>
-                <p></p>
                 <p>Since July 2012:</p>
                 <ul className="stats-list">
                 <li> <StatsCyclistsKilled /> </li>
