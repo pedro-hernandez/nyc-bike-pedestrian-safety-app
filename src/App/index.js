@@ -22,13 +22,13 @@ class App extends Component {
     }
   }
 
-  // accepts data from BoroughSelect component to get most recent 
-  // vehicle collison info from NYC Open Data API 
+  // accepts data from BoroughSelect component to get most recent
+  // vehicle collison info from NYC Open Data API
   boroughInfo = async (selectedBorough) => {
     this.setState({
       borough: selectedBorough,
     });
-    const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&borough=${selectedBorough}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
+    const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&borough=${selectedBorough}&$order=crash_date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
     const nypdData = await nypdApi.json();
 
     this.setState({
@@ -38,14 +38,14 @@ class App extends Component {
     });
   }
 
-  // accepts data from ZipCodeSelect component to get most recent 
-  // vehicle collison info from NYC Open Data API 
+  // accepts data from ZipCodeSelect component to get most recent
+  // vehicle collison info from NYC Open Data API
   zipInfo = async (selectedZip) => {
     this.setState({
       zip: selectedZip,
     });
 
-    const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&zip_code=${selectedZip}&$order=date%20DESC&$offset=0&$where=location%20IS%20NOT%20NULL`);
+    const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&zip_code=${selectedZip}&$order=crash_date%20DESC&$offset=0&$where=location%20IS%20NOT%20NULL`);
     const nypdData = await nypdApi.json();
 
     this.setState({
@@ -66,14 +66,14 @@ class App extends Component {
 
     if (this.state.borough !== '') {
       await fetch(this.state.page);
-      const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&borough=${this.state.borough}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
+      const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&borough=${this.state.borough}&$order=crash_date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
       nypdData = await nypdApi.json();
       this.setState({
         incidents: [...nypdData],
       });
     } else if (this.state.zip !== '') {
       await fetch(this.state.page);
-      const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&zip_code=${this.state.zip}&$order=date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
+      const nypdApi = await fetch(`https://data.cityofnewyork.us/resource/qiz3-axqb.json?$$app_token=vsw3d1IWA34wIGA56fGGb4DIc&$limit=5&zip_code=${this.state.zip}&$order=crash_date%20DESC&$offset=${this.state.page}&$where=location%20IS%20NOT%20NULL`);
       nypdData = await nypdApi.json();
       this.setState({
         incidents: [...nypdData],
